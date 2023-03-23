@@ -8,8 +8,60 @@ body {
     height: 100vh;
     background-image: url(imgs/darkBackground.jpeg);
     background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #wrapper > div {
+    color: white;
+}
+
+#leftContent {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding-left: 75px;
+    padding-top: 75px;
+    gap: 20px;
+}
+
+#location, #temperature {
+    font-size: 3rem;
+}
+
+#temperature {
+    font-weight: bold;
+}
+
+#condition {
+    font-size: 1.5rem;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: 0px solid white;
+    border-bottom-width: 1px;
+}
+
+#locationQ {
+    width: 100px;
+    padding-left: 12px;
+}
+
+#locationQ:focus {
+    outline: none;
+}
+
+#submit > img {
+    height: 18px;
+    width: 18px;
+}
+
+#submit, #locationQ {
+    background: none;
+    border: none;
+    cursor: pointer;
     color: white;
 }
