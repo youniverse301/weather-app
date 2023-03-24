@@ -79,6 +79,16 @@ function createPage(location, condition, temperatureF, temperatureC) {
   });
 }
 
+
+function checkUnit(temperatureF,temperatureC) {
+  const temperature = document.getElementById('temperature');
+  if (temperature.classList.contains('farenheit')) {
+    return temperatureF + " °F";
+  } else {  
+    return temperatureC + " °C";
+  }
+}
+
 function displayError() {
   const searchError = document.getElementById('searchError');
   searchError.style.display = "block";
