@@ -29,8 +29,27 @@ body {
     font-size: 3rem;
 }
 
-#temperature {
+#temperatureF,#temperatureC {
+    display: flex;
+    flex-direction: row;
     font-weight: bold;
+    gap: 5px;
+}
+
+.unit {
+    font-size: 1.8rem;
+    padding-top: 3px;
+}
+
+#changeUnit {
+    background: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    width: 115px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    padding: 5px;
 }
 
 #condition {
@@ -64,4 +83,8 @@ body {
     border: none;
     cursor: pointer;
     color: white;
+}
+
+#searchError {
+    font-size: 1rem;
 }
