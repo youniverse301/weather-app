@@ -1,8 +1,24 @@
+const locationQuery = document.getElementById('locationQ');
+const submit = document.getElementById('submit');
+submit.addEventListener('click', getQuery);
+
+let lastQuery = "London";
+
+function getQuery() {
+  event.preventDefault();
+  let locationValue = locationQuery.value;
+  const temperature = document.getElementById('temperature');
+  temperature.classList.add("farenheit"); // Add "farenheit" class to temperature element
+  getWeather(locationValue);
+  locationQuery.value = "";
+}
+
 async function getWeather(input) {
   try {
     const data = await fetchData(input);
     const { location, condition, temperatureF, temperatureC } = extractData(data);
     displayData(location, condition, temperatureF, temperatureC);
+    lastQuery = input;
     return data;
   } catch (error) {
     console.error(error);
@@ -16,11 +32,11 @@ async function fetchData(input) {
 }
 
 function queryFormatter(input) {
-    if (typeof input === 'number') {
-      return input;
-    } else {
-      return input.replace(/ /g, '+');
-    }
+  if (typeof input === 'number') {
+    return input;
+  } else {
+    return input.replace(/ /g, '+');
+  }
 }
 
 function extractData(data) {
@@ -37,65 +53,37 @@ function displayData(location, condition, temperatureF, temperatureC) {
   searchError.style.display = "none";
 }
 
-function createPage(location,condition,temperatureF,temperatureC) {
-  this.location = location;
+function createPage(location, condition, temperatureF, temperatureC) {
   const locationDiv = document.getElementById('location');
-  locationDiv.innerHTML= location;
-  this.conition = condition;
+  locationDiv.innerHTML = location;
+  
   const conditionDiv = document.getElementById('condition');
-  conditionDiv.innerHTML= condition;
-  this.temperatureF = temperatureF;
-  this.temperatureC = temperatureC;
-  temperature = document.getElementById('temperature');
-  temperature.innerHTML = checkUnit1(temperatureF,temperatureC)
+  conditionDiv.innerHTML = condition;
+  
+  let currentUnit = "farenheit";
+  let currentTemp = temperatureF;
+  
+  const temperature = document.getElementById('temperature');
+  temperature.innerHTML = checkUnit(currentTemp, currentUnit);
+  
   const changeUnit = document.getElementById('changeUnit');
   changeUnit.addEventListener('click', function() {
-    temperature.innerHTML = checkUnit2(temperatureF, temperatureC);
-  });
-  }
-
-  function checkUnit1(temperatureF,temperatureC) {
-    if (temperature.classList.contains('farenheit')) {
-      return temperatureF + " °F"
-    } else {  
-      return temperatureC + " °C"
+    if (currentUnit === "farenheit") {
+      currentUnit = "celsius";
+      currentTemp = temperatureC + " °C";
+    } else {
+      currentUnit = "farenheit";
+      currentTemp = temperatureF + " °F";
     }
-  }
-
-function checkUnit2(temperatureF,temperatureC) {
-  if (temperature.classList.contains('farenheit')) {
-    temperature.classList.remove("farenheit");
-    temperature.classList.add("celsius");    
-    return temperatureC + " °C"
-  } else {
-    temperature.classList.remove("celsius");
-    temperature.classList.add("farenheit");        
-    return temperatureF + " °F"
-  }
+    temperature.innerHTML = currentTemp;
+  });
 }
-
-const changeUnit = document.getElementById('changeUnit');
-
-
 
 function displayError() {
   const searchError = document.getElementById('searchError');
   searchError.style.display = "block";
 }
 
-
-const locationQuery = document.getElementById('locationQ');
-const submit = document.getElementById('submit');
-submit.addEventListener('click', getQuery);
-
-function getQuery() {
-    event.preventDefault();
-     let locationValue = locationQuery.value;
-     getWeather(locationValue);
-     console.log(locationValue);
-     locationQuery.value = "";
-}
 const temperatureDiv = document.getElementById('temperature');
 temperatureDiv.classList.add("farenheit");
-let defaultCity = "London";
-getWeather(defaultCity);
+getWeather(lastQuery);
