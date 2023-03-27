@@ -10,21 +10,87 @@
 <body>
     <div id="wrapper">
         <div id="leftContent">
-            <div id="location"></div>
-            <div id="condition"></div>
-            <div id="temperature"></div>
-            <button id="changeUnit">Change Unit</button>
-            <form id="form">
-                <label for="location"></label>
-                <input id="locationQ" type="text" placeholder="Search a city">
-                <button id="submit" type="submit">
-                    <img src="imgs/searchIcon.png">
-                </button>
-                <div id="underline"></div>
-            </form>
-            <div id="searchError"> Location not found.<br>
+            <div id="leftWrapper">
+                <div id="location"></div>
+                <div id="condition"></div>
+                <div id="temperature"></div>
+                <img id="temperatureImg"></img>
+                <button id="changeUnit">Change Unit</button>
+                <form id="form">
+                    <label for="location"></label>
+                    <input id="locationQ" type="text" placeholder="Search a city">
+                    <button id="submit" type="submit">
+                        <img src="imgs/searchIcon.png">
+                    </button>
+                    <div id="underline"></div>
+                </form>
+                <div id="searchError"> Location not found.<br>
                 Search must be in the form of "City", "City, State",<br>
                 "City, Country" or a ZIP Code.
+                </div>
+            </div>    
+        </div>
+        <div id="bottomContent">
+            <div id="forecast">
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="daily">
+                    <p id="day"></p>
+                    <p id="dayTemperature"></p>
+                    <img id="dayIcon" src="./imgs/overcast.png">
+                </div>
+            </div>
+        </div>
+        <div id="rightContent">
+            <div id="rightWrapper">
+                <div id="feelsLike">
+                    <p id="feelsText">Feels Like</p>
+                    <p id="feelsTemp">14 °C</p>
+                    <img id="feelsImg" src="./imgs/feelsLike.png">
+                </div>
+                <div id="humidity">
+                    <p id="humidityText">Humidity</p>
+                    <p id="humidityPerc">26%</p>
+                    <img id="humidityImg" src="./imgs/humidity.png">
+                </div>
+                <div id="rainChance">
+                    <p id="rainText">Chance of Rain</p>
+                    <p id="rainPerc">33%</p>
+                    <img id="rainImg" src="./imgs/rainy.png">
+                </div>
+                <div id="windSpeed">
+                    <p id="windText">Wind Speed</p>
+                    <p id="windKm">5.5km/h</p>
+                    <img id="windImg" src="./imgs/wind.png">
+                </div>
             </div>
         </div>
     </div>  
