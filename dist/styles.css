@@ -32,17 +32,19 @@ body {
 #leftWrapper {
     display: flex;
     flex-direction: column;
-    padding-left: 75px;
-    padding-top: 75px;
-    gap: 20px;
+    padding-left: 50px;
+    padding-top: 50px;
 }
 
-#location, #temperature {
+#location {
     font-size: 3rem;
+    padding-bottom: 10px;
 }
 
 #temperature {
     font-weight: bold;
+    height: fit-content;
+    font-size: 3rem;
 }
 
 .unit {
@@ -58,11 +60,12 @@ body {
     width: 115px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
-    padding: 5px;
+    margin-bottom: 10px;
 }
 
 #condition {
     font-size: 1.5rem;
+    padding-bottom: 10px;
 }
 
 #form {
@@ -100,8 +103,9 @@ body {
 }
 
 #temperatureImg {
-    height: 128px;
-    width: 128px;
+    height: 124px;
+    width: 124px;
+    padding-bottom: 10px;
 }
 
 #bottomContent {
@@ -109,38 +113,51 @@ body {
     grid-column-start: 1;
     grid-column-end: 3;
     height: 40vh;
-    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#forecastSwitch {
+    height: fit-content;
+    align-self: flex-start;
+    padding-left: 25px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-#forecast {
+#forecastDaily, #forecastHourly {
     display: flex;
     flex-direction: row;
-    height: fit-content;
-    align-self: flex-end;
+    justify-content: space-between;
+    width: 100%;
     gap: 45px;
     padding-bottom: 75px;
 }
 
-#day{
+#day, #hour {
     font-size: 1.3rem;
     margin: 0;
 }
 
-#dayTemperature {
+#dayTemperature, #hourTemperature {
     font-size: 1.5rem;
     margin: 0;
     font-weight: bold;
 }
 
-#dayIcon {
+#dayIcon, #hourIcon {
     height: 55px;
     width: 55px;
     margin: 0;
 }
 
-.daily {
+.daily, .hourly {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,8 +169,8 @@ body {
 #rightWrapper {
     display: flex;
     flex-direction: column;
-    padding-right: 75px;
-    padding-top: 75px;
+    padding-right: 50px;
+    padding-top: 50px;
     gap: 20px;
 }
 
@@ -169,13 +186,13 @@ body {
     margin: 0;
     grid-column-start: 2;
     align-self: flex-end;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 #feelsTemp, #humidityPerc, #rainPerc, #windKm {
     grid-column-start: 2;
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 
@@ -185,8 +202,8 @@ body {
     grid-row-end: 3;
     align-self: center;
     justify-self: center;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     padding-top: 10px;
 }
 
@@ -198,4 +215,40 @@ input::placeholder {
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: .9rem;
+}
+
+#hourlySwitch {
+    display: flex;
+    align-items: center;
+}
+
+#daily, #hourly {
+    background: none;
+    color: white;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+#leftBtn, #rightBtn {
+    height: fit-content;
+    cursor: pointer;
+    padding-right: 7px;
+    height: 18px;
+    width: 18px;
+}
+
+#circle1, #circle2, #circle3 {
+    height: 10px;
+    width: 10px;
+    height: fit-content;
+    cursor: pointer;
+    padding-right: 7px;
+}
+
+#daily.selected, #hourly.selected {
+    border: 1px solid white;
+    padding: 5px;
 }

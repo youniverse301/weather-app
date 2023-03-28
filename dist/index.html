@@ -31,7 +31,18 @@
             </div>    
         </div>
         <div id="bottomContent">
-            <div id="forecast">
+            <div id="forecastSwitch">
+                <button id="daily">Daily</button>
+                <button id="hourly">Hourly</button>
+                <div id="hourlySwitch">
+                    <img id="leftBtn" src="imgs/leftArrow.png">
+                    <img id="circle1" class="circle" src="imgs/circleThin.png">
+                    <img id="circle2" class="circle" src="imgs/circleThin.png">
+                    <img id="circle3" class="circle" src="imgs/circleThin.png">
+                    <img id="rightBtn" src="imgs/rightArrow.png">
+                </div>
+            </div>
+            <div id="forecastDaily">
                 <div class="daily">
                     <p id="day"></p>
                     <p id="dayTemperature"></p>
@@ -68,12 +79,134 @@
                     <img id="dayIcon" src="./imgs/overcast.png">
                 </div>
             </div>
+            <div id="forecastHourly">
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+                <div class="hourly">
+                    <p id="hour"></p>
+                    <p id="hourTemperature"></p>
+                    <img id="hourIcon" src="./imgs/overcast.png">
+                </div>
+            </div>
         </div>
         <div id="rightContent">
             <div id="rightWrapper">
                 <div id="feelsLike">
                     <p id="feelsText">Feels Like</p>
-                    <p id="feelsTemp">14 °C</p>
+                    <p id="feelsTemp">14°C</p>
                     <img id="feelsImg" src="./imgs/feelsLike.png">
                 </div>
                 <div id="humidity">
@@ -88,7 +221,7 @@
                 </div>
                 <div id="windSpeed">
                     <p id="windText">Wind Speed</p>
-                    <p id="windKm">5.5km/h</p>
+                    <p id="windKm">5.5 km/h</p>
                     <img id="windImg" src="./imgs/wind.png">
                 </div>
             </div>
