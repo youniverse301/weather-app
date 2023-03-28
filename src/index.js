@@ -10,8 +10,6 @@ const currentHour = new Date().getHours();
     const hourGroup = hourlyArray.slice(i, i + 8);
     hourlyGroups.push(hourGroup);
   }
-
-  console.log(hourlyGroups);
   const hourGroup1 = hourlyGroups[0];
   const hourGroup2 = hourlyGroups[1];
   const hourGroup3 = hourlyGroups[2];
@@ -25,11 +23,6 @@ const currentHour = new Date().getHours();
   hourGroup3.forEach(hour => {
     hour.style.display = 'none'
   })
-
-
-
-  const test = hourlyGroups[0]
-  console.log(test)
 
 const locationQuery = document.getElementById('locationQ');
 const submit = document.getElementById('submit');
@@ -48,8 +41,8 @@ async function getWeather(input) {
   try {
     const data = await fetchData(input);
     console.log(data);
-    const { location, condition, temperatureF, temperatureC, forecast, forecastHourly} = extractData(data);
-    displayData(location, condition, temperatureF, temperatureC, forecast, forecastHourly);
+    const { location, condition, temperatureF, temperatureC, forecast, forecastHourly, current } = extractData(data);
+    displayData(location, condition, temperatureF, temperatureC, forecast, forecastHourly, current);
     lastQuery = input;
     return data;
   } catch (error) {
@@ -79,12 +72,14 @@ function extractData(data) {
   const forecast = data.forecast.forecastday;
   const allHourData = data.forecast.forecastday.flatMap(day => day.hour);
   const forecastHourly = allHourData.slice(currentHour, currentHour + 25);
-  return { location, condition, temperatureF, temperatureC, forecast, forecastHourly };
+  const current = data.current;
+  return { location, condition, temperatureF, temperatureC, forecast, forecastHourly, current };
 }
 
-function displayData(location, condition, temperatureF, temperatureC, forecast, forecastHourly) {
+function displayData(location, condition, temperatureF, temperatureC, forecast, forecastHourly, current) {
   new createPage(location, condition, temperatureF, temperatureC);
   new createBottom(forecast, forecastHourly);
+  new createRight(current, forecastHourly);
   const searchError = document.getElementById('searchError');
   searchError.style.display = "none";
 }
@@ -233,7 +228,6 @@ function displayHourly() {
 
 function createBottom(forecast, forecastHourly) {
   forecastSwitch(daily);
-  console.log(forecastHourly)
   const days = document.querySelectorAll('#day');
   const daysIcon = document.querySelectorAll('#dayIcon');
   const dayTemperature = document.querySelectorAll('#dayTemperature');
@@ -330,6 +324,39 @@ function formatHour(hourString) {
   const formattedHours = hours % 12 || 12;
   const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
   return `${formattedHours}:${formattedMinutes} ${ampm}`;
+}
+
+function createRight(current, forecastHourly) {
+  console.log(current)
+  const feelsTemp = document.getElementById('feelsTemp');
+  const humidityPerc = document.getElementById('humidityPerc');
+  const rainPerc = document.getElementById('rainPerc');
+  const windKm = document.getElementById('windKm');
+
+  console.log(forecastHourly) 
+
+  humidityPerc.innerHTML = current.humidity + "%";
+  rainPerc.innerHTML = forecastHourly[0].chance_of_rain + "%";
+  windKm.innerHTML = forecastHourly[0].wind_kph + "km/h";
+
+
+  const temperatureF = current.feelslike_f;
+  const temperatureC = current.feelslike_c;
+    let currentUnit = "farenheit";
+    let currentTemp = temperatureF + farenheit;
+    feelsTemp.innerHTML = currentTemp;
+    
+    const changeUnit = document.getElementById('changeUnit');
+    changeUnit.addEventListener('click', () => {
+      if (currentUnit === "celsius") {
+        currentUnit = "farenheit";
+        currentTemp = temperatureF + farenheit;
+      } else {
+        currentUnit = "celsius";
+        currentTemp = temperatureC + celsius;
+      }
+      feelsTemp.innerHTML = currentTemp;
+    });
 }
 
 function displayError() {
